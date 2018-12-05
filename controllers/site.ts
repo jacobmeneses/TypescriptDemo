@@ -4,10 +4,11 @@
 //     public httpMethod: string 
 //     public callback: any
 // }
-import {Request, Response } from "express"
+import {Request, Response } from 'express'
+import { ControllerConfig } from '../common/controller-config'
 
 export class SiteController {
-    public routes: Array<any>
+    public routes: Array<ControllerConfig>
 
     constructor() {
         this.routes = [{ 

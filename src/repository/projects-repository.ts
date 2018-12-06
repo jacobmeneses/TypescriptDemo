@@ -1,4 +1,4 @@
-import { Project } from '../models'
+import { Project } from '../models/index'
 
 interface FindAllFunc {
     (): Array<Project>

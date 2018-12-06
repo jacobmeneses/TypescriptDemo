@@ -1,7 +1,6 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        // "outFile": "index.js",
         "inlineSourceMap": true,
         "inlineSources": true
     },

@@ -1,7 +1,7 @@
 import { Project } from '../models/index'
 
 interface FindAllFunc {
-    (): Array<Project>
+    (): Promise<Array<Project>>
 }
 export interface ProjectsRepository{
     findAll: FindAllFunc

@@ -2,4 +2,6 @@ extends ../layout/main.pug
 
 block content
   h1= message
-  h2 Search section
+  h2 Search project
+  each item in values
+    p=item.name

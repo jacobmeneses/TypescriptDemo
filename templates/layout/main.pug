@@ -1,8 +1,13 @@
 html
   head
     title My Site - #{title}
+    link(rel='stylesheet' href='css/site.css')
   body
+    div.header
+      p.header-text header
+      a(href="search") Search
+      a(href="/") Home
     block content
-    block foot
-      #footer
-        p some footer content
+
+    div.footer
+      p.footer-text footer

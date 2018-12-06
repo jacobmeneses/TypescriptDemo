@@ -1,4 +1,4 @@
-# Typescript demo
+# Typescript demo (work in progress)
 A typescript demo with express
 
 Run the following command to compile.

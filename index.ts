@@ -10,6 +10,7 @@ const searchController = new SearchController()
 /* Config */
 app.set('view engine', 'pug')
 app.set('views', './templates')
+app.use(express.static('public'))
 
 /* Routes */
 const controllers = [

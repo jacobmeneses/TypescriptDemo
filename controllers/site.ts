@@ -1,17 +1,12 @@
-
-// class MyRoute {
-//     public url: string
-//     public httpMethod: string 
-//     public callback: any
-// }
 import {Request, Response } from 'express'
-import { ControllerConfig } from '../common/controller-config'
+import { BaseController } from '../common/base-controller'
 
-export class SiteController {
-    public routes: Array<ControllerConfig>
+export class SiteController extends BaseController {
 
     constructor() {
-        this.routes = [{ 
+        super()
+
+        this.setRoutes([{ 
             url: '/',
             httpMethod: 'get',
             callback: this.index
@@ -25,7 +20,7 @@ export class SiteController {
             url: '/register',
             httpMethod: 'get',
             callback: this.register
-        }]
+        }])
     }
 
     public index(req: Request, res: Response){

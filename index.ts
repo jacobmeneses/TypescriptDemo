@@ -1,13 +1,11 @@
 import * as express from "express"
-import {Request, Response } from "express"
-
 import {SiteController} from './controllers/site'
 import {SearchController} from './controllers/search'
 
+var app = express()
+
 const siteController = new SiteController()
 const searchController = new SearchController()
-
-var app = express()
 
 /* Config */
 app.set('view engine', 'pug')
@@ -20,11 +18,12 @@ const controllers = [
 ];
 
 controllers.forEach(controller => {
-  controller.routes.forEach(route=> {
+  let routes = controller.getRoutes()
+
+  routes.forEach(route=> {
     app[route.httpMethod](route.url, route.callback)
   });
 })
-
 
 app.listen(4000, () => {
   console.log("Listening on port 4000")

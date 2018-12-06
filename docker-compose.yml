@@ -1,0 +1,16 @@
+version: '3.1'
+services:
+  db:
+    image: postgres:11.1
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    volumes:
+      - "./data/test-db.sql:/docker-entrypoint-initdb.d/test-db.sql"
+    ports:
+      - 4003:5432
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 4002:8080

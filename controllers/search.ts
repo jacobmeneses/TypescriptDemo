@@ -1,15 +1,16 @@
 import {Request, Response } from 'express'
-import { ControllerConfig } from '../common/controller-config'
+import { BaseController } from '../common/base-controller'
 
-export class SearchController {
-    public routes: Array<ControllerConfig>
+export class SearchController extends BaseController {
 
     constructor() {
-        this.routes = [{ 
+        super()
+
+        this.setRoutes([{ 
             url: '/search',
             httpMethod: 'get',
             callback: this.search
-        }]
+        }])
     }
 
     public search(req: Request, res: Response){

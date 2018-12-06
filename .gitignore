@@ -1,4 +1,3 @@
 node_modules/
 index.js
-controllers/*.js
-common/*.js
+src/**/*.js

@@ -1,7 +1,9 @@
 extends ../layout/main.pug
 
 block content
-  h1= message
   h2 Search project
-  each item in values
-    p=item.name
+  div.search-card-box
+    each item in values
+        div.search-card
+          p=item.name
+          p=item.short_description

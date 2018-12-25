@@ -18,6 +18,6 @@ export class SearchController extends BaseController {
         let repository = new ProjectsRepositoryImpl()
         let values = await repository.findAll()
 
-        res.render('search/search', { title: 'Hey', message: 'its the search!', values })
+        res.render('search/search', { title: 'Hey', values })
     }
 }

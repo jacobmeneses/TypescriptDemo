@@ -2,22 +2,18 @@ import {ProjectsRepository} from './projects-repository'
 import { Project } from '../models/index';
 
 import { Client, ClientConfig } from 'pg';
+import * as fs from 'fs';
+import * as path from 'path';
 import { throwStatement } from 'babel-types';
 
 export class ProjectsRepositoryImpl implements ProjectsRepository{
     private client: Client
 
     constructor() {
-        let clientConfig : ClientConfig = {
-            user: 'postgres',
-            database: 'postgres',
-            password: 'example',
-            port: 4003,
-            host: '127.0.0.1',
-            ssl: false
-        }
-
-        this.client = new Client(clientConfig);
+        let filepath = path.join(path.dirname(fs.realpathSync(__filename)), '../config/development.json');
+        var config = JSON.parse(fs.readFileSync(filepath, 'utf8'))
+        let clientConfig : ClientConfig = config
+        this.client = new Client(clientConfig)
     }
 
     async findAll() {

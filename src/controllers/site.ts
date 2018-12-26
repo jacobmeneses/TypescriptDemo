@@ -17,9 +17,9 @@ export class SiteController extends BaseController {
             callback: this.login
         },
         { 
-            url: '/register',
+            url: '/signup',
             httpMethod: 'get',
-            callback: this.register
+            callback: this.signup
         }])
     }
 
@@ -27,11 +27,11 @@ export class SiteController extends BaseController {
         res.render('home/index', { title: 'Hey', message: 'its the index!' })
     }
 
-    public register(req: Request, res: Response){
-        res.render('home/index', { title: 'Hey', message: 'its the register!' })
+    public login(req: Request, res: Response){
+        res.render('login/login')
     }
 
-    public login(req: Request, res: Response){
-        res.render('home/index', { title: 'Hey', message: 'its the login!' })
+    public signup(req: Request, res: Response){
+        res.render('signup/signup')
     }
 }

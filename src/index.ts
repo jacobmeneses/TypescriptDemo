@@ -1,6 +1,7 @@
 import * as express from "express"
 import {SiteController} from './controllers/site'
 import {SearchController} from './controllers/search'
+import { networkInterfaces } from "os";
 
 var app = express()
 
@@ -17,6 +18,12 @@ const controllers = [
   siteController,
   searchController
 ];
+
+/* Middleware */
+app.use(function (req, res, next) {
+  console.log(req.body);
+  next();
+});
 
 controllers.forEach(controller => {
   let routes = controller.getRoutes()

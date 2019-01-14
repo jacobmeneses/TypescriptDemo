@@ -19,8 +19,6 @@ export class ProjectsRepositoryImpl implements ProjectsRepository{
     async findAll() {
         await this.client.connect()
         let result = await this.client.query("SELECT * from projects")
-        console.log(result.rows)
-
         let value = new Array<Project>()
 
         result.rows.forEach(element => {

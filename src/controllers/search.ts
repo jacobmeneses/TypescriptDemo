@@ -11,6 +11,11 @@ export class SearchController extends BaseController {
             url: '/search',
             httpMethod: 'get',
             callback: this.search
+        }, { 
+            url: '/search-authed',
+            httpMethod: 'get',
+            callback: this.searchAuthed,
+            auth: true
         }])
     }
 
@@ -19,5 +24,12 @@ export class SearchController extends BaseController {
         let values = await repository.findAll()
 
         res.render('search/search', { title: 'Hey', values })
+    }
+
+    public async searchAuthed(req: Request, res: Response){
+        let repository = new ProjectsRepositoryImpl()
+        let values = await repository.findAll()
+
+        res.render('search/search-authed', { title: 'Hey', values })
     }
 }

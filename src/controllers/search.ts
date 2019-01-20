@@ -4,6 +4,8 @@ import { ProjectsRepositoryImpl } from '../repository/projects-repository-impl';
 
 export class SearchController extends BaseController {
 
+    public baseUrl: string
+
     constructor() {
         super()
 
@@ -26,10 +28,11 @@ export class SearchController extends BaseController {
         res.render('search/search', { title: 'Hey', values })
     }
 
-    public async searchAuthed(req: Request, res: Response){
+    public async searchAuthed(req: Request, res: Response, next: any){
+        console.log('search authed method called');
         let repository = new ProjectsRepositoryImpl()
         let values = await repository.findAll()
 
-        res.render('search/search-authed', { title: 'Hey', values })
+        return res.render('search/search-authed', { title: 'Hey', values })
     }
 }
